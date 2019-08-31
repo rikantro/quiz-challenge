@@ -1,4 +1,5 @@
 const Path = require('path');
+const Webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -20,6 +21,10 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: Path.resolve(__dirname, '../src/index.html')
+    }),
+    new Webpack.DefinePlugin({
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+      'process.env.CITY': JSON.stringify(process.env.CITY),
     })
   ],
   resolve: {
