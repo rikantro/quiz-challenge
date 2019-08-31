@@ -1,6 +1,23 @@
 # Quiz Challenge
+Quiz & Zomato API fetcher
+
+[Online demo on netlify](https://ricardo-jimenez-quiz-challenge.netlify.com/)
+
+## Required technologies
+- JavaScript
+- SCSS / CSS
+- HTML5
 
 ## Scripts
+
+#### Required Environment Variables
+
+These variables are required for development and production mode
+
+``` console
+  API_KEY - API Key of [Zomato](https://developers.zomato.com/api)
+  CITY    - City to be used in Zomato API queries
+```
 
 ### `yarn start:dev`
 
@@ -13,8 +30,9 @@ Builds the app for production to the `build` folder.<br>
 
 ## TODO
 
-- [ ] API Implementation.
-- [ ] HTML Views
+- [x] API Implementation.
+- [x] List of Restaurants
+- [ ] Quiz Views
 - [ ] Progress bar.
 - [ ] Timers.
 - [ ] Responsive design.
