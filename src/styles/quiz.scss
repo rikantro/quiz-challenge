@@ -1,12 +1,12 @@
-quiz-card  {
+quiz-card, result-view {
 
-  &::part(dummy-card) { 
-    @extend .card;
-    
-    margin: 1rem;
+  &::part(card) { 
+    @extend .card;   
+
+    margin-top: 1rem;
     @include media-breakpoint-between(xs, sm) { width: 100%   }  
     @include media-breakpoint-down(md) { width: 70% }  
-    @include media-breakpoint-down(lg) { width: 80% }    
+    @include media-breakpoint-down(lg) { width: 100% }    
     @include media-breakpoint-down(xl) { width: 40% }    
 
   }  
@@ -15,7 +15,8 @@ quiz-card  {
 
     @extend .card-title;
     @include media-breakpoint-between(xs, md) {
-      font-size: 3rem;
+      font-size: 2.8rem;
+      line-height: 3rem;
     }   
     
     @include media-breakpoint-down(xl) {
@@ -23,7 +24,7 @@ quiz-card  {
     }     
   }  
 
-  &::part(dummy-body) {
+  &::part(body) {
     @extend .card-body;    
   }
 
@@ -32,20 +33,54 @@ quiz-card  {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+
+    width: 100%;
+
   }
 
-  &::part(dummy-content) {
+  &::part(content) {
     @extend .card-text;   
 
     margin-top: 0;
   
     @include media-breakpoint-between(xs, md) {
-      font-size: 2rem;
+
+      margin-top: 1rem;
+      margin-bottom: 1rem !important;
+      font-size: 1.8rem;
+      line-height: 2rem;
     }   
     
     @include media-breakpoint-down(xl) {
       font-size: 1rem;
     }     
   }
+
+  .question-option {
+
+    @extend .form-check;
+
+    @include media-breakpoint-between(xs, md) { 
+      margin-bottom: 0.2rem;
+    }
+
+    input {
+
+      @include media-breakpoint-between(xs, md) {
+        width: 2rem !important;
+        height: 2rem !important;
+        vertical-align: bottom;
+      }
+    }
+
+    label {
+      @include media-breakpoint-between(xs, md) {
+        font-size: 1.5rem;
+      }   
+    }
+
+  }
+
+  
 
 }

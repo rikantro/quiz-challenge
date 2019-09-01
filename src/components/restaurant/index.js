@@ -7,7 +7,7 @@ const restaurantTemplate = (data) => {
   const { name, cuisines, image, location, establishment, cost, rating, votes } = data;
 
   return `
-    <div class="restaurant-card ml-3 mt-3 mb-3">
+    <div class="restaurant-card mt-3 mb-3">
       
       <div class="body">
         <div class="container">

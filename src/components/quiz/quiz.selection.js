@@ -4,8 +4,8 @@ const renderItem = (data) => {
   const { index, item, step, groupType } = data;
 
   return `
-    <div class="form-check">
-      <input type="${groupType}" id="quizSelection${index}" name="selectionGroup${step}" 
+    <div class="question-option">
+      <input type="${groupType}" id="quizSelection${index}" name="selectionGroup${step}"
               value="${item}"
               onchange="app.registerAnswer(event)">
       <label class="form-check-label" for="quizSelection${index}">
