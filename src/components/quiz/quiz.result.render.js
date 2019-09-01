@@ -52,7 +52,7 @@ export class QuizResultRender {
     const rootElement = document.getElementById(this.elementId);    
     const elements = this.questions.reduce((html, item, index) => html + this.renderItem(index + 1, item), '');
   
-    rootElement.innerHTML = `<result-view title="Quiz" >${elements}</result-view>`;
+    rootElement.innerHTML = `<result-view title="Results of Quiz" >${elements}</result-view>`;
   }
 
 }

@@ -9,7 +9,7 @@ export class ResultViewComponent extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <div part="card">
         <div part="body">
-          <span part="title">Results of ${title}</span>
+          <span part="title">${title}</span>
           <slot></slot>
         </div>
       </div>`;

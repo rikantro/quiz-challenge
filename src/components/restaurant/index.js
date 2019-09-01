@@ -52,8 +52,12 @@ const restaurantTemplate = (data) => {
 export const renderRestaurants = (elementId) => {
 
   const domElement = document.getElementById(elementId);
+
+  const DEFAULT_CITY = typeof(process.env.CITY) === 'undefined' ? '- City not assigned -' : process.env.CITY;
+  const title= `Select your favorite ${DEFAULT_CITY} restaurant:`;
+
   domElement.innerHTML = `
-    <result-view title="Zomato" >
+    <result-view title="${title}" >
       <p>Loading...</p>
     </result-view>`;
 
@@ -63,7 +67,7 @@ export const renderRestaurants = (elementId) => {
       .then(response => {
 
         const elements = response.reduce((html, item) => html + restaurantTemplate(item), '');
-        domElement.innerHTML = `<result-view title="Zomato" >${elements}</result-view>`;
+        domElement.innerHTML = `<result-view title="${title}" >${elements}</result-view>`;
 
       })
       .catch(error => {
