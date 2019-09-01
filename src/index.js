@@ -1,6 +1,8 @@
 import './styles/index.scss';
-import { renderRestaurants } from './components/restaurants';
+import { QuizApp } from './app';
 
-renderRestaurants('restaurants');
-  
-console.log('Quiz Challenge is started');
+const app = new QuizApp();
+window.app = app;
+
+app.initialize();
+app.start();

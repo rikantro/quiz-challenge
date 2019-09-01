@@ -1,0 +1,54 @@
+result-view  {
+
+  &::part(card) { 
+    @extend .card;
+    
+    margin: 1rem;
+    @include media-breakpoint-between(xs, sm) { width: 100%   }  
+    @include media-breakpoint-down(md) { width: 70% }  
+    @include media-breakpoint-down(lg) { width: 80% }    
+    @include media-breakpoint-down(xl) { width: 40% }    
+
+  }  
+
+  &::part(title) {
+
+    @extend .card-title;
+    @include media-breakpoint-between(xs, md) {
+      font-size: 3rem;
+    }   
+    
+    @include media-breakpoint-down(xl) {
+      font-size: 1.5rem;
+    }     
+  }  
+
+  &::part(body) {
+    @extend .card-body;    
+  }
+
+  &::part(button) {
+    @extend .btn;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  &::part(content) {
+    @extend .card-text;   
+
+    margin-top: 0;
+  
+    @include media-breakpoint-between(xs, md) {
+      font-size: 2rem;
+    }   
+    
+    @include media-breakpoint-down(xl) {
+      font-size: 1rem;
+    }     
+  }
+
+
+}
+
+

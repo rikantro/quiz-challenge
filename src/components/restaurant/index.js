@@ -1,4 +1,4 @@
-import { getBestRestaurants, validateAPIParameters } from '../utils/api';
+import { getBestRestaurants, validateAPIParameters } from '../../utils/api';
 import { missingParametersTemplate, fetchErrorTemplate } from './errors.restaurants';
 import { missingImage } from './image.helper';
 
@@ -7,7 +7,7 @@ const restaurantTemplate = (data) => {
   const { name, cuisines, image, location, establishment, cost, rating, votes } = data;
 
   return `
-    <div class="restaurant-card card w-25 ml-3 mt-3 mb-3">
+    <div class="restaurant-card ml-3 mt-3 mb-3">
       
       <div class="body">
         <div class="container">
@@ -51,28 +51,29 @@ const restaurantTemplate = (data) => {
 
 export const renderRestaurants = (elementId) => {
 
-  const app = document.getElementById(elementId);
+  const domElement = document.getElementById(elementId);
+  domElement.innerHTML = `
+    <result-view title="Zomato" >
+      <p>Loading...</p>
+    </result-view>`;
+
   if (validateAPIParameters()) {
 
     getBestRestaurants()
-    .then(response => {
+      .then(response => {
 
-      const elements = response.reduce((html, item) => html + restaurantTemplate(item), '');
-      const root = `<div>${elements}</div>`;      
-      app.innerHTML = root;
+        const elements = response.reduce((html, item) => html + restaurantTemplate(item), '');
+        domElement.innerHTML = `<result-view title="Zomato" >${elements}</result-view>`;
 
-    })
-    .catch(error => {
+      })
+      .catch(error => {
+        console.log(error);
+        domElement.innerHTML = `<result-view title="Zomato" >${fetchErrorTemplate(error)}</result-view>`;     
 
-      console.log(error);
-      const root = `<div>${fetchErrorTemplate(error)}</div>`;      
-      app.innerHTML = root;     
-
-    });    
+      });    
 
   } else {
-    const root = `<div>${missingParametersTemplate()}</div>`;      
-    app.innerHTML = root;    
+    domElement.innerHTML = `<result-view title="Zomato" >${missingParametersTemplate()}</result-view>`;    
   }
 
 };
