@@ -15,8 +15,6 @@ export class QuizAnswerComponent extends HTMLElement {
           <span part="title">Answer ${step} - ${title}</span>
           <slot></slot>
         </div>
-        <div class="button-container">          
-        </div>
       </div>`;
     
   }

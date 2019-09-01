@@ -14,14 +14,15 @@ export class QuizCardComponent extends HTMLElement {
         .button-container {
           display: flex;
           justify-content: flex-end;
+          padding-left: 1rem;
           padding-right: 1rem;
-          padding-bottom: 1rem;          
+          padding-bottom: 1rem;
         }
       </style>
-      <div part="dummy-card">
-        <div part="dummy-body">
-          <span part="title">Question number ${step}</span>
-          <p part="dummy-content">${title}</p>        
+      <div part="card">
+        <div part="body">
+          <span part="title">Question #${step}</span>
+          <p part="content">${title}</p>        
           <slot></slot>
         </div>
         <div class="button-container">
